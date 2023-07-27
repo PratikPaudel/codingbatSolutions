@@ -1,0 +1,130 @@
+<h2 class="code-line" data-line-start=0 data-line-end=1 ><a id="Codingbatcom_Logic2_0"></a><a href="http://Codingbat.com">Codingbat.com</a>: Logic2</h2>
+<pre><code class="has-line-data" data-line-start="3" data-line-end="131" class="language-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">makeBricks</span><span class="hljs-params">(<span class="hljs-keyword">int</span> small, <span class="hljs-keyword">int</span> big, <span class="hljs-keyword">int</span> goal)</span> </span>{
+    <span class="hljs-keyword">if</span> (small + big * <span class="hljs-number">5</span> &lt; goal)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    <span class="hljs-keyword">if</span> (goal % <span class="hljs-number">5</span> &gt; small)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+}
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">loneSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span> </span>{
+    <span class="hljs-keyword">if</span> (a == b &amp;&amp; a == c) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">if</span> (a == b) {
+        <span class="hljs-keyword">return</span> c;
+    }
+    <span class="hljs-keyword">if</span> (b == c) {
+        <span class="hljs-keyword">return</span> a;
+    }
+    <span class="hljs-keyword">if</span> (c == a) {
+        <span class="hljs-keyword">return</span> b;
+    }
+    <span class="hljs-keyword">return</span> a + b + c;
+}
+
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">luckySum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span> </span>{
+    <span class="hljs-keyword">if</span> ((a == <span class="hljs-number">13</span> &amp;&amp; c == <span class="hljs-number">13</span>) || (a == <span class="hljs-number">13</span> &amp;&amp; b == <span class="hljs-number">13</span>)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">if</span> (a == <span class="hljs-number">13</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">if</span> (b == <span class="hljs-number">13</span>) {
+        <span class="hljs-keyword">return</span> a;
+    }
+    <span class="hljs-keyword">if</span> (c == <span class="hljs-number">13</span>) {
+        <span class="hljs-keyword">return</span> a + b;
+    }
+    <span class="hljs-keyword">return</span> a + b + c;
+}
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">noTeenSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span> </span>{
+    <span class="hljs-keyword">return</span> fixTeen(a) + fixTeen(b) + fixTeen(c);
+}
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">fixTeen</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
+    <span class="hljs-keyword">if</span> (n &gt;= <span class="hljs-number">13</span> &amp;&amp; n &lt;= <span class="hljs-number">14</span> || n &gt;= <span class="hljs-number">17</span> &amp;&amp; n &lt;= <span class="hljs-number">19</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">return</span> n;
+}
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">roundSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span> </span>{
+    <span class="hljs-keyword">return</span> round10(a) + round10(b) + round10(c);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">round10</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span> </span>{
+    <span class="hljs-keyword">if</span> (num % <span class="hljs-number">10</span> &lt; <span class="hljs-number">5</span> || num % <span class="hljs-number">10</span> == <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> (num / <span class="hljs-number">10</span>) * <span class="hljs-number">10</span>;
+    }
+    <span class="hljs-keyword">if</span> (num % <span class="hljs-number">10</span> &gt;= <span class="hljs-number">5</span>) {
+        <span class="hljs-keyword">return</span> ((num / <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>) * <span class="hljs-number">10</span>;
+    }
+    <span class="hljs-keyword">return</span> num;
+}
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">closeFar</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span> </span>{
+    <span class="hljs-keyword">if</span> (Math.abs(b - c) &lt;= <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    <span class="hljs-keyword">if</span> (Math.abs(a - b) &gt; <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">if</span> (Math.abs(a - c) &gt; <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">blackjack</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>{
+    <span class="hljs-keyword">if</span> (a &gt; <span class="hljs-number">21</span> &amp;&amp; b &gt; <span class="hljs-number">21</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> (a &gt; <span class="hljs-number">21</span> || b &gt; <span class="hljs-number">21</span>) {
+        <span class="hljs-keyword">return</span> Math.min(a, b);
+    }
+    <span class="hljs-keyword">return</span> Math.max(a, b);
+}
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">evenlySpaced</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span> </span>{
+    <span class="hljs-keyword">int</span> temp;
+    <span class="hljs-keyword">if</span> (a &gt; b) {
+        temp = a;
+        a = b;
+        b = temp;
+    }
+    <span class="hljs-keyword">if</span> (b &gt; c) {
+        temp = b;
+        b = c;
+        c = temp;
+    }
+    <span class="hljs-keyword">if</span> (a &gt; b) {
+        temp = a;
+        a = b;
+        b = temp;
+    }
+    <span class="hljs-keyword">return</span> Math.abs(a - b) == Math.abs(b - c);
+}
+------------------------------------------------------------------------------------------------------
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">makeChocolate</span><span class="hljs-params">(<span class="hljs-keyword">int</span> small, <span class="hljs-keyword">int</span> big, <span class="hljs-keyword">int</span> goal)</span> </span>{
+    <span class="hljs-keyword">if</span> (small + big * <span class="hljs-number">5</span> &lt; goal)
+        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (goal - big * <span class="hljs-number">5</span> &gt;= <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">int</span> n = goal - big * <span class="hljs-number">5</span>;
+        <span class="hljs-keyword">if</span> (n &lt;= small) {
+            <span class="hljs-keyword">return</span> n;
+        }
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">int</span> n = goal % <span class="hljs-number">5</span>;
+        <span class="hljs-keyword">if</span> (n &lt;= small) {
+            <span class="hljs-keyword">return</span> n;
+        }
+    }
+    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+}
+</code></pre>
